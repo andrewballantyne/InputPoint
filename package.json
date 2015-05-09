@@ -1,0 +1,21 @@
+{
+  "name": "input_point",
+  "version": "0.0.1",
+  "description": "A Point Wrapper For Both Mouse and Touch Inputs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ballantyno/InputPoint.git"
+  },
+  "keywords": [
+    "Point",
+    "TouchPoint",
+    "MousePoint",
+    "InputPoint"
+  ],
+  "dependencies": {
+    "class_vehicle": "1.0.1"
+  },
+  "author": "Andrew Ballantyne",
+  "license": "MIT",
+  "homepage": "https://github.com/ballantyno/InputPoint"
+}

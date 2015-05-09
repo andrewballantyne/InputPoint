@@ -1,0 +1,73 @@
+<html>
+<head>
+  <title>Test of Input Point</title>
+  <script type="text/javascript" src="../../node_modules/class_vehicle/src/ClassVehicle.js"></script>
+  <script type="text/javascript" src="../../src/Point.js"></script>
+  <script type="text/javascript" src="../../src/InputPoint.js"></script>
+
+  <style>
+    * {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    h3 {
+      margin: 5px 0;
+    }
+
+    #settingsContainer {
+      width: 400px;
+    }
+
+    #focalPoint {
+      background-color: lightblue;
+      cursor: pointer;
+      height: 160px;
+      margin: 10px 0 20px 0;
+      padding: 20px;
+      width: 360px;
+    }
+  </style>
+</head>
+<body>
+  <h3 id="output">Click the square for a point reading</h3>
+  <div id="focalPoint"></div>
+
+  <fieldset id="settingsContainer">
+    <legend>Configurable Settings:</legend>
+    <label><input type="checkbox" id="checkboxGlobal" /> Get Value Globally</label>
+  </fieldset>
+  
+
+  <script type="text/javascript">
+    var focalPointContainer = document.getElementById('focalPoint');
+    var outputContainer = document.getElementById('output');
+    var checkboxGlobal = document.getElementById('checkboxGlobal');
+
+    focalPoint.addEventListener('click', onClickHandler);
+    function onClickHandler(e) {
+      var inputPoint = new InputPoint(e, checkboxGlobal.checked);
+
+      outputContainer.innerText = 
+        "x: " + inputPoint.primaryPoint.x + "; y: " + inputPoint.primaryPoint.y;
+    }
+
+    try {
+      // Display the size and location of the box
+      var clientRect = focalPointContainer.getBoundingClientRect();
+      focalPointContainer.innerText =
+        "x: " + clientRect.top + "\n" +
+        "y: " + clientRect.left + "\n" + 
+        "w: " + clientRect.width + "\n" +
+        "h: " + clientRect.height;
+    }
+    catch (ex) {
+      focalPointContainer.innerText = "Was unable to get the container details.";
+    }
+  </script>
+</body>
+</html>
