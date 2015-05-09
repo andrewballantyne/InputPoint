@@ -4,8 +4,15 @@ A simple parser of mouse and touch events into x/y points.
 
 ## Contents
 
+1. [Dependencies](#dependencies)
 1. [Functionality](#functionality)
 1. [License](#license)
+
+## Dependencies
+
+With Node.js installed, run <code>npm install</code> in the root to fetch all dependencies.
+
+[ClassVehicle](https://github.com/ballantyno/ClassVehicle) - Helps create and maintain the classes I create.
 
 ## Functionality
 
