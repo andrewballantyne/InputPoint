@@ -1,6 +1,6 @@
 {
   "name": "input_point",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Point Wrapper For Both Mouse and Touch Inputs",
   "repository": {
     "type": "git",

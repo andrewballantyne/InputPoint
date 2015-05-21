@@ -24,6 +24,13 @@ var InputPoint = (function (isAbstract) {
     if (typeof parseGlobal === 'undefined') parseGlobal = false;
 
     /**
+     * Set to true to get feedback in the form of console.logs.
+     *
+     * @type {boolean}
+     */
+    this.debug = false;
+
+    /**
      * A list of the points stripped from the event. Length is often increased when there are 
      * multiple touch values (multiple fingers touching the screen at event creation).
      * 
@@ -37,6 +44,10 @@ var InputPoint = (function (isAbstract) {
      */
     this.primaryPoint = null;
 
+    // Quick Reference Variables
+    this.x = undefined;
+    this.y = undefined;
+
     this._parseGlobal = parseGlobal;
 
 
@@ -49,16 +60,21 @@ var InputPoint = (function (isAbstract) {
   
   /* ----- Private Methods ----- */
   p._parseEventForPoint = function (e) {
-    console.warn(e);
+    if (this.debug) console.log("Parsing Event", e);
     if (e.touches) {
-
+      if (this.debug) console.log("Unhandled touch interface -- Coming Soon");
     }
     else {
+      if (this.debug) console.log("Mouse Event");
       if (this._parseGlobal) {
         this.primaryPoint = new Point(e.clientX, e.clientY);
       }
       else {
         this.primaryPoint = new Point(e.offsetX, e.offsetY);
+
+        // For convenience, apply the primary point directly to this object
+        this.x = this.primaryPoint.x;
+        this.y = this.primaryPoint.y;
       }
     }
   };
